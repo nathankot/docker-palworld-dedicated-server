@@ -2,7 +2,8 @@ version: '3.9'
 services:
   palworld-dedicated-server:
     container_name: palworld-dedicated-server
-    image: jammsen/palworld-dedicated-server:latest
+    build: .
+    # image: jammsen/palworld-dedicated-server:latest
     deploy:
       resources:
         limits:
