@@ -9,6 +9,7 @@ function start_server() {
     setup_configs
     ei ">>> Preparing to start the gameserver"
     START_OPTIONS=()
+    START_OPTIONS+=("-RCONPort=$RCON_PORT")
     if [[ -n $COMMUNITY_SERVER ]] && [[ $COMMUNITY_SERVER == "true" ]]; then
         e "> Setting Community-Mode to enabled"
         START_OPTIONS+=("EpicApp=PalServer")

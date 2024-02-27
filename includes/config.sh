@@ -14,7 +14,7 @@ function setup_engine_ini() {
         fi
         # Create empty Engine.ini file
         echo "" > "${GAME_ENGINE_FILE}"
-    else 
+    else
         e "> Found existing config!"
     fi
     if grep -qE "${pattern1}" "${GAME_ENGINE_FILE}" 2>/dev/null; then
@@ -297,6 +297,10 @@ function setup_palworld_settings_ini() {
         e "> Setting BanListURL to '$BAN_LIST_URL'"
         sed -E -i "s~BanListURL=\"[^\"]*\"~BanListURL=\"$BAN_LIST_URL\"~" "$GAME_SETTINGS_FILE"
     fi
+
+    e "> Setting bShowPlayerList to 'True'"
+    sed -E -i "s/bShowPlayerList=[a-zA-Z]*/bShowPlayerList=True/" "$GAME_SETTINGS_FILE"
+
     es ">>> Finished setting up PalWorldSettings.ini"
 }
 
