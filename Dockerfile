@@ -195,6 +195,7 @@ RUN mkdir -p "$BACKUP_PATH" \
     && gosu --version \
     && gosu nobody true
 
+RUN groupmod -g 1003 steam && usermod -u 1003 steam
 VOLUME ["${GAME_ROOT}"]
 
 ENTRYPOINT  ["/entrypoint.sh"]
